@@ -1,24 +1,40 @@
-import React from 'react'
+import React from "react";
 
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-import styles from './Header.module.css'
+import styles from "./Header.css";
 
 function Header() {
   return (
-    <div className={styles.header}>
-        <div className={styles.headerSectionLeft}>
-            <img src="https://www.freepnglogos.com/uploads/netflix-socks-png-18.png" height="25px" alt="Netflix Logo" />
-        </div>
-        <div className={styles.headerSectionRight}>
-            <ul>
-                <li className="item" id="item-1"><Link to='/'>Home</Link></li>
-                <li className="item" id="item-2"><Link to='/'>About</Link></li>
-                
-            </ul>
-        </div>
+    <div className="header">
+      <div className="headerSectionLeft">
+        <img
+          src="https://www.freepnglogos.com/uploads/netflix-socks-png-18.png"
+          height="25px"
+          alt="Netflix Logo"
+        />
+      </div>
+      <div className="headerSectionRight">
+        <ul>
+          <li className="item" id="item">
+            <Link to="/" className="link">
+              Home
+            </Link>
+          </li>
+          <li className="item" id="item">
+            <Link to="/" className="link">
+              About
+            </Link>
+          </li>
+          <li className="item" id="item">
+            <Link to="/search" className="link">
+              Search
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
-  )
+  );
 }
 
 export default Header;

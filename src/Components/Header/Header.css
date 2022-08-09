@@ -1,0 +1,28 @@
+.header {
+    /* background-color: rebeccapurple; */
+    
+
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+.headerSectionLeft {
+    width: 50%;
+    margin-left: 1rem;
+}
+
+.headerSectionRight {
+    width: 50%;
+}
+
+.headerSectionRight > ul {
+    display:flex;
+    list-style: none;
+}
+.headerSectionRight > ul> li {
+    padding-left: 10px;
+}
+.headerSectionRight > ul > li > .link{
+    color: black;
+    text-decoration: none;
+}
