@@ -1,19 +1,39 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import {useState} from 'react'
+import useFetch from 'react-fetch-hook'
+// import PropTypes from 'prop-types'
 import styles from './Home.module.css'
 
 function Home(props) {
-  return (
+  // const [trending, setTrending] = useState([])
+
+  const {isLoading,error,data} = useFetch("https://randomuser.me/api/");
+
+  
+
+  if(error) return (<p>Error :{error}</p>);
+
+  
+  if(isLoading) return (<p>hhhh</p>);
+  else return (
+<>
     <div className={styles.container}>
-  <a href="#animals" className={styles.item}><img src="https://placeimg.com/640/480/animals" alt="Animals"></img></a>
-  <a href="#architecture" className={styles.item}><img src="https://placeimg.com/640/480/architecture" alt="Architecture"></img></a>
-  <a href="#nature" className={styles.item}><img src="https://placeimg.com/640/480/nature" alt="Nature"></img></a>
-  <a href="#people" className={styles.item}><img src="https://placeimg.com/640/480/people" alt="People"></img></a>
-  <a href="#tech" className={styles.item}><img src="https://placeimg.com/640/480/tech" alt="Tech"></img></a>
+
+      {/* for(let i=0; i<props.length; i++) {} */}
+  <a href="#animals" className={styles.item}><img src="https://placeimg.com/640/480/animals" alt="Animals"></img> </a>
+
+
+    
+
+  
 </div>
+<p>{props.apikey}</p>
+<p>{JSON.stringify(data)}</p>
+</>
   )
+
 }
 
-Home.propTypes = {}
+// Home.propTypes = {}
 
 export default Home

@@ -1,7 +1,7 @@
 
 import './App.css';
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom"
-import {useState} from 'react-dom'
+import {useState} from 'react'
 
 import Header from './Components/Header/Header'
 
@@ -10,15 +10,17 @@ import About from './Pages/About/About'
 
 
 function App() {
-  
+  const [first, setfirst] = useState([])
+  const [apikey] = useState(process.env.REACT_APP_TMDB_API_KEY)
+
   return (
     <>
     <Router>
 
     <Header/>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="" element={<About />} />
+      <Route path="/" element={<Home apikey={apikey} />} />
+      <Route path="/about" element={<About />} />
     </Routes>
     </Router>
     </>
