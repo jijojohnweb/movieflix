@@ -1,0 +1,6 @@
+.carousel-tray {
+    display: flex;
+    height: 30vh;
+    /* overflow: hidden; */
+    /* justify-content: space-between; */
+}

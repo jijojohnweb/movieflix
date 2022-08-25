@@ -1,0 +1,16 @@
+.moviecard-container{
+    position: relative;
+    width: 20%;
+    background-color: chartreuse;
+    padding:0 5px;
+    border-radius: 20px;
+}
+.moviecard-container section {
+    position: absolute;
+    overflow: hidden;
+}
+.moviecard-container section img {
+    object-fit:scale-down;
+    overflow: hidden;
+    width: 100%;
+}

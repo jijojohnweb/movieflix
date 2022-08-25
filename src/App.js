@@ -11,7 +11,8 @@ import About from './Pages/About/About'
 
 function App() {
   const [first, setfirst] = useState([])
-  const [apikey] = useState(process.env.REACT_APP_TMDB_API_KEY)
+  const [apikey] = useState(process.env.REACT_APP_TMDB_API_KEY);
+  const [auth] = useState(process.env.REACT_APP_TMDB_AUTH_KEY)
 
   return (
     <>
@@ -19,7 +20,7 @@ function App() {
 
     <Header/>
     <Routes>
-      <Route path="/" element={<Home apikey={apikey} />} />
+      <Route path="/" element={<Home apikey={apikey} auth={auth}/>} />
       <Route path="/about" element={<About />} />
     </Routes>
     </Router>

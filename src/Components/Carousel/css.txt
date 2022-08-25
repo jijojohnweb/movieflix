@@ -1,0 +1,44 @@
+
+
+
+
+.carousel{
+    overflow: hidden;
+}
+.carousel-container {
+    background-color: aqua;
+
+    width: 80%;
+    margin: 20px auto; /*to center*/
+}
+.carousel-slider {
+    display: flex;
+    height: 100%;
+    width: 500%;
+    flex-shrink: 0;
+    transition: all 1s;
+    translate: -20%; 
+    /* default transition -20% */
+}
+.carousel-slider-section {
+    flex-basis: 20%;
+    flex-shrink: 0;
+    display: flex;
+    transition: 1s;
+    justify-content: center;
+    /* align-items: center; */
+    /* font-size: 20px; */
+    
+}
+
+.carousel-slider section content {
+
+    background-color: chartreuse;
+    width: 98%;
+}
+
+.carousel-controls button i {
+
+    font-size: 50px;
+    color: white;
+  }

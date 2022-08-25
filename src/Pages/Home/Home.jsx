@@ -1,39 +1,40 @@
-import React from 'react'
-// import {useState} from 'react'
-import useFetch from 'react-fetch-hook'
-// import PropTypes from 'prop-types'
-import styles from './Home.module.css'
+import React, { useState, useEffect } from "react";
+import "./Home.css";
+import Carousel from "../../Components/Carousel/Carousel";
+import CarouselTray from "../../Components/CarouselTray/CarouselTray";
 
 function Home(props) {
-  // const [trending, setTrending] = useState([])
+  const [data, setData] = useState([]);
+  var url = `https://api.themoviedb.org/3/trending/all/day?api_key=${props.apikey}`;
+  var imgurl = "https://image.tmdb.org/t/p/w500";
 
-  const {isLoading,error,data} = useFetch("https://randomuser.me/api/");
+  useEffect(() => {
+    const getData = async (req, res) => {
+      await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setData(data.results);
+        });
+    };
+    getData();
+  }, []);
 
-  
+  var cards = data.results;
 
-  if(error) return (<p>Error :{error}</p>);
-
-  
-  if(isLoading) return (<p>hhhh</p>);
-  else return (
-<>
-    <div className={styles.container}>
-
-      {/* for(let i=0; i<props.length; i++) {} */}
-  <a href="#animals" className={styles.item}><img src="https://placeimg.com/640/480/animals" alt="Animals"></img> </a>
-
-
-    
-
-  
-</div>
-<p>{props.apikey}</p>
-<p>{JSON.stringify(data)}</p>
-</>
-  )
-
+  return (
+    <>
+      {/* <div>Home {props.apikey}{url}</div> */}
+      <Carousel  />
+      
+      <CarouselTray title="Trending Now" data={cards} />
+      {/* <div className="con"> {JSON.stringify(data)}</div> */}
+    </>
+  );
 }
 
-// Home.propTypes = {}
-
-export default Home
+export default Home;
